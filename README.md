@@ -1,167 +1,55 @@
-# 10 Object-oriented Programming: SVG Logo Maker
+# SVG Logo maker
 
-## Your Task
+## Project Description
 
-Your task is to build a Node.js command-line application that takes in user input to generate a logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics). The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file.
+This command-line application that takes in user input to generate a simple logo and save it as an [SVG file](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics) for freelance web developers. The application prompts the user to select a color and shape, provide text for the logo, and save the generated SVG to a `.svg` file. While selecting text, validation of not more three characters have been added. and for other inputs empty string validations have been added. 
 
-Because this application won’t be deployed, you’ll need to provide a link to a walkthrough video that demonstrates its functionality and passes all of the tests. You’ll need to submit a link to the video **and** add it to the README of your project.
+Logos can be generated in three predefined shapes Circle, Triangle and Square with text upto three characters inside it and colors can be choosen for shapes and text inside logo. 
 
-Refer to the [Video Submission Guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) on the Full-Stack Blog for additional guidance on creating a video.
+## Techstack
 
-> **Note**: There is no starter code for this assignment.
-### User Story
+Node JS is used for the project development. 
+Inquirer library is used to prompt questions to user.
+Jest is used for implementing test cases.
+fs library is used for creating new svg file.
 
-```md
-AS a freelance web developer
-I WANT to generate a simple logo for my projects
-SO THAT I don't have to pay a graphic designer
-```
+## Screenshots
 
-## Acceptance Criteria
+Below screen shot shows how to run and use this project
 
-```md
-GIVEN a command-line application that accepts user input
-WHEN I am prompted for text
-THEN I can enter up to three characters
-WHEN I am prompted for the text color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I am prompted for a shape
-THEN I am presented with a list of shapes to choose from: circle, triangle, and square
-WHEN I am prompted for the shape's color
-THEN I can enter a color keyword (OR a hexadecimal number)
-WHEN I have entered input for all the prompts
-THEN an SVG file is created named `logo.svg`
-AND the output text "Generated logo.svg" is printed in the command line
-WHEN I open the `logo.svg` file in a browser
-THEN I am shown a 300x200 pixel image that matches the criteria I entered
-```
+![Project usage](./Images/Screenshot%202023-05-30%20at%201.38.32%20pm.png)
 
-## Mock-Up
 
-The following image shows a mock-up of the generated SVG given the following input entered by the user: `SVG` for the text, `white` for the text color, `circle` from the list of shapes, and `green` for the shape color. Note that this is just an image of the output SVG and not the SVG file itself:
+Below screenshot shows how to run test cases and verify the project
+![Project Testcases](./Images/Screenshot%202023-05-30%20at%201.39.20%20pm.png)
 
-![Image showing a green circle with white text that reads "SVG.".](./Images/10-oop-homework-demo.png)
+## Video recording of the project
 
-## Additional Requirements
+Video uploaded in below link will display how to use this application
 
-This Challenge combines many of the skills covered so far. In addition to the User Story and Acceptance Criteria, we’ve provided some guidelines to help you get started.
+[https://drive.google.com/file/d/1gBl9X6o8smuoRGkz3q6Wnvfh9aULXSci/view?usp=sharing](https://drive.google.com/file/d/1gBl9X6o8smuoRGkz3q6Wnvfh9aULXSci/view?usp=sharing)
 
-Because this Challenge requires a video submission, refer to the [Full-Stack Blog video submission guide](https://coding-boot-camp.github.io/full-stack/computer-literacy/video-submission-guide) for guidance on creating and sharing a video.
+## Project Installation
 
-Your application should use [Jest](https://www.npmjs.com/package/jest) for running the unit tests and [Inquirer](https://www.npmjs.com/package/inquirer/v/8.2.4) for collecting input from the user. The application will be invoked by using the following command:
+To install the project follow below steps.
 
-```bash
-node index.js
-```
+1. Download the project or clone this repository using git clone
+2. Open terminal and run the command 'npm install'
+3. Run the command 'node index.js' to run the application
 
-It is recommended that you start with a directory structure that looks like the following example:
+## Usage
 
-```md
-.  
-├── examples/           // Example svg file(s) created with the app
-├── lib/                // Folder for classes or functions
-    ├── shapes.js       // Exports `Triangle`, `Circle`, and `Square` classes
-    ├── shapes.test.js  // Jest tests for shapes
-    └── more...         // Additional files and tests
-├── .gitignore          // Indicates which folders and files Git should ignore
-├── index.js            // Runs the application using imports from lib/
-├── package.json
-└── README.md           // App description, link to video, setup and usage instructions           
-```
+1. Run the command 'node index.js' to run the application in terminal.
+2. Enter the text not more than three characters .
+3. Enter the color required for the text.
+4. Select the shape of the svg from circle, triangle or square
+5. Enter the color required for the shape.
+6. You can see the logo.svg file generated in root folder of the project
 
-> **Important**: Make sure that you remove `dist` from the `.gitignore` file so that Git will track this folder and include it when you push up to your application's repository.
-The application must include `Triangle`, `Circle`, and `Square` classes, as well as tests for each of these classes using Jest. While not a requirement, it is recommended that you place any common functionality and properties shared by the `Triangle`, `Circle`, and `Square` classes in a parent `Shape` class and use inheritance to reuse the code in the child classes.
+## Testing
+ To test the application open terminal and run command 'npm test' to run jest unit test cases.
 
-Each shape class should be tested for a `render()` method that returns a string for the corresponding SVG file with the given shape color.
-
-The following example test should pass:
-
-```js
-const shape = new Triangle();
-shape.setColor("blue");
-expect(shape.render()).toEqual('<polygon points="150, 18 244, 182 56, 182" fill="blue" />');
-```
-
-You may need to add additional files in the `lib` folder for handling user input, writing to a file, etc. Writing tests for these additional files is **optional**.
-
-## Helpful SVG Resources
-
-* [Example SVG](https://static.fullstack-bootcamp.com/fullstack-ground/module-10/circle.svg)
-
-* [Scalable Vector Graphics (SVG)](https://en.wikipedia.org/wiki/Scalable_Vector_Graphics)
-
-* [SVG tutorial](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial)
-
-* [Basic SVG shapes](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes)
-
-* [Text in SVG](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Texts)
-
-* [SVG VS Code extension](https://marketplace.visualstudio.com/items?itemName=jock.svg)
-
-## Grading Requirements
-
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
-This Challenge is graded based on the following criteria:
-
-### Deliverables: 15%
-
-* At least one sample SVG file generated using the application must be submitted.
-
-* Your GitHub repository containing your application code.
-
-### Walkthrough Video: 32%
-
-* A walkthrough video that demonstrates the functionality of the SVG logo maker and passing tests must be submitted.
-
-* The `README.md` file must include a link to the walkthrough video.
-
-* The walkthrough video must show all tests passing from the command line.
-
-* The walkthrough video must demonstrate how a user would invoke the application from the command line.
-
-* The walkthrough video must demonstrate how a user would enter responses to all of the prompts in the application.
-
-* The walkthrough video must demonstrate a generated SVG file, showing the file being opened in the browser. The image in the browser must reflect the choices made by the user (text, shape, and colors).
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-  * Uses the [Inquirer package](https://www.npmjs.com/package/inquirer/v/8.2.4).
-
-  * Uses the [Jest package](https://www.npmjs.com/package/jest) for a suite of unit tests.
-
-  * The application must have `Triangle`, `Square`, and `Circle` classes.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains a high-quality readme with description and a link to a walkthrough video.
-
-## Review
-
-You are required to submit the following for review:
-
-* A walkthrough video that demonstrates the functionality of the application and passing tests.
-
-* At least one sample SVG file generated using your application.
-
-* The URL of the GitHub repository, with a unique name and a README describing the project.
-
----
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+ ### Reach me here: 
+ 
+ Have Queries? Reach me at
+ Email : vijay.cheruku@live.com
